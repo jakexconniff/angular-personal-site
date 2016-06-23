@@ -1,0 +1,17 @@
+<post-add></post-add>
+
+<input type="search" ng-model="postsList.searchText" placeholder="Search">
+
+<posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
+
+<ul>
+  <li dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount">
+    <a ui-sref="postDetails({ postId: post._id })">
+      {{post.name}}
+    </a>
+    <p>{{post.description}}</p>
+    <post-remove post="post"></post-remove>
+  </li>
+</ul>
+
+<dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
