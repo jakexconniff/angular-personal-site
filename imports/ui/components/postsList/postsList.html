@@ -1,4 +1,7 @@
-<post-add></post-add>
+<post-add ng-show="postsList.isLoggedIn"></post-add>
+<div ng-hide="postsList.isLoggedIn">
+  Log in to create a post!
+</div>
 
 <input type="search" ng-model="postsList.searchText" placeholder="Search">
 
@@ -10,7 +13,7 @@
       {{post.name}}
     </a>
     <p>{{post.description}}</p>
-    <post-remove post="post"></post-remove>
+    <post-remove post="post" ng-show="postsList.isOwner(post)"></post-remove>
   </li>
 </ul>
 

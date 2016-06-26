@@ -43,11 +43,19 @@ class PostsList {
       postsCount() {
         return Counts.get('numberOfPosts');
       },
-      users() {
-        return Meteor.users.find({});
+      isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUserId() {
+        return Meteor.userId();
       }
     });
 }
+    // Test this as a helper.
+    isOwner(post) {
+      return this.isLoggedIn && post.owner === this.currentUserId;
+    }
+
     pageChanged(newPage) {
       this.page = newPage;
     }

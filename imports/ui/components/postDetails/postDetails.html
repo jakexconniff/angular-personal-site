@@ -1,7 +1,7 @@
 The post you selected is:
 <form>
-  Post name: <input type="text" ng-model="postDetails.post.name">
-  Description: <input type="text" ng-model="postDetails.post.description">
+  Post name: <input type="text" ng-model="postDetails.post.name" ng-disabled="!postDetails.isOwner(postDetails.post)">
+  Description: <input type="text" ng-model="postDetails.post.description" ng-disabled="!postDetails.isOwner(postDetails.post)">
   <button ng-click="postDetails.save()">Save</button>
 </form>
 

@@ -26,21 +26,23 @@ class PostDetails {
       },
       users() {
         return Meteor.users.find({});
+      },
+      isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUserId() {
+        return Meteor.userId();
       }
     });
-    console.log(this);
-    console.log(Meteor.users.find({}));
+  }
+  isOwner(post) {
+    if (post) {
+      return this.isLoggedIn && post.owner === this.currentUserId;
+    }
   }
 
   save() {
-    Posts.update({_id: this.post._id}, {$set: { name: this.post.name, description: this.post.description } },
-    (error) => {
-      if (error) {
-        console.log('Oops, unable to update the post.');
-      } else {
-        console.log("Updated post!");
-      }
-    });
+    Meteor.call('updatePost', this.post);
   }
 }
 

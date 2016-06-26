@@ -15,8 +15,7 @@ class PostAdd {
     this.post.owner = Meteor.user()._id;
     this.post.ownerEmail = Meteor.user().emails[0].address;
     this.post.public = true; // This is a hack. Must change publish function to not restrict on "public".
-    console.log(this.post);
-    Posts.insert(this.post);
+    Meteor.call('addPost', this.post);
     this.reset();
   }
 
