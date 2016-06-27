@@ -1,11 +1,12 @@
-<post-add ng-show="postsList.isLoggedIn"></post-add>
+<post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
 <div ng-hide="postsList.isLoggedIn">
   Log in to create a post!
 </div>
 
+<!--
 <input type="search" ng-model="postsList.searchText" placeholder="Search">
-
 <posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
+-->
 
 <ul>
   <li dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount">

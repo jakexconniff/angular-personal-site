@@ -8,12 +8,14 @@ export function addPost(post) {
   Posts.insert(post);
 }
 
-export function removePost(postId, userId) {
-  check (postId, String);
+export function removePost(post, userId) {
   check (userId, String);
-
+  
   if (!this.userId) {
     throw new Meteor.Error(400, 'You have to log in!');
+  } else {
+    console.log("Attempt");
+    Posts.remove({_id: post._id});
   }
 }
 

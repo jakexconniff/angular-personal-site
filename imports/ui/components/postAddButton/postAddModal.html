@@ -1,0 +1,16 @@
+<md-dialog class="modal" aria-label="New post" ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>New post</h2>
+      <span flex></span>
+      <md-button ng-click="postAddModal.close()">
+        Close
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <post-add done="postAddModal.close()"></post-add>
+    </div>
+  </md-dialog-content>
+</md-dialog>

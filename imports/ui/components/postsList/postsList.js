@@ -10,6 +10,7 @@ import { Posts } from '../../../api/posts/index';
 import { name as PostsSort } from '../postsSort/postsSort';
 import { name as PostAdd } from '../postAdd/postAdd';
 import { name as PostRemove } from '../postRemove/postRemove';
+import { name as PostAddButton } from '../postAddButton/postAddButton';
 
 class PostsList {
   constructor($scope, $reactive) {
@@ -74,7 +75,8 @@ export default angular.module(name, [
   PostAdd,
   PostRemove,
   utilsPagination,
-  PostsSort
+  PostsSort,
+  PostAddButton
 ]).component(name, {
   template,
   controllerAs: name,

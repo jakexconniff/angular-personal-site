@@ -7,7 +7,8 @@ import { Posts } from '../../../api/posts/index';
 class PostRemove {
   remove() {
     if (this.post) {
-      Meteor.call('removePost', this.post.owner, Meteor.userId());
+      console.log(this.post.owner + " " + Meteor.userId());
+      Meteor.call('removePost', this.post, Meteor.userId());
     }
   }
 }

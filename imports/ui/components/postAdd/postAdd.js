@@ -16,6 +16,11 @@ class PostAdd {
     this.post.ownerEmail = Meteor.user().emails[0].address;
     this.post.public = true; // This is a hack. Must change publish function to not restrict on "public".
     Meteor.call('addPost', this.post);
+
+    if(this.done) {
+      this.done();
+    }
+
     this.reset();
   }
 
@@ -30,6 +35,9 @@ export default angular.module(name, [
   angularMeteor
 ]).component(name, {
   template,
+  bindings: {
+    done: '&?'
+  },
   controllerAs: name,
   controller: PostAdd
 });
