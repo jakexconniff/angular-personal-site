@@ -9,13 +9,13 @@
 -->
 
 <ul>
-  <li dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount">
+  <md-card class="post-card" md-whiteframe="24" layout="center" dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount">
     <a ui-sref="postDetails({ postId: post._id })">
       {{post.name}}
     </a>
     <p>{{post.description}}</p>
-    <post-remove post="post" ng-show="postsList.isOwner(post)"></post-remove>
-  </li>
+    <post-remove class="post-remove-button" post="post" ng-show="postsList.isOwner(post)"></post-remove>
+  </md-card>
 </ul>
 
 <div class="paginator">
