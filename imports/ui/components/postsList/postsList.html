@@ -1,17 +1,10 @@
-<post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
-<div ng-if="!postsList.isLoggedIn">
-  Log in to create a post!
-</div>
-<!--
-<input type="search" ng-model="postsList.searchText" placeholder="Search">
-<posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
--->
+<div style="margin-top: -19px"></div>
 <md-toolbar class="md-accent" layout="row" layout-align="center center" layout-padding>
   <h1>Jake Conniff</h1>
 </md-toolbar>
 <md-divider></md-divider>
 <md-toolbar class="md-warn" layout="row" layout-align="center center" layout-padding>
-  <h1>JavaScript Developer.</h1>
+  <h1>Web Developer.</h1>
 </md-toolbar>
 <ul layout="column" layout-align="center center" layout-padding>
   <md-card class="post-card" layout="row" dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount" layout-padding>
@@ -26,3 +19,14 @@
 <div class="paginator" layout="column" layout-align="center center" layout-padding>
   <dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
+
+<post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
+
+
+<!--
+<div ng-if="!postsList.isLoggedIn">
+  Log in to create a post!
+</div>
+<input type="search" ng-model="postsList.searchText" placeholder="Search">
+<posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
+-->
