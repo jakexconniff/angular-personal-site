@@ -1,23 +1,28 @@
 <post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
-<div ng-hide="postsList.isLoggedIn">
+<div ng-if="!postsList.isLoggedIn">
   Log in to create a post!
 </div>
-
 <!--
 <input type="search" ng-model="postsList.searchText" placeholder="Search">
 <posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
 -->
-
-<ul>
-  <md-card class="post-card" md-whiteframe="24" layout="center" dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount">
-    <a ui-sref="postDetails({ postId: post._id })">
+<md-toolbar class="md-accent" layout="row" layout-align="center center" layout-padding>
+  <h1>Jake Conniff</h1>
+</md-toolbar>
+<md-divider></md-divider>
+<md-toolbar class="md-warn" layout="row" layout-align="center center" layout-padding>
+  <h1>JavaScript Developer.</h1>
+</md-toolbar>
+<ul layout="column" layout-align="center center" layout-padding>
+  <md-card class="post-card" layout="row" dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount" layout-padding>
+    <a ui-sref="postDetails({ postId: post._id })" flex>
       {{post.name}}
     </a>
-    <p>{{post.description}}</p>
+    <p flex>{{post.description}}</p>
     <post-remove class="post-remove-button" post="post" ng-show="postsList.isOwner(post)"></post-remove>
   </md-card>
 </ul>
 
-<div class="paginator">
+<div class="paginator" layout="column" layout-align="center center" layout-padding>
   <dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>

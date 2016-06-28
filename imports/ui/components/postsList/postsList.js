@@ -18,7 +18,7 @@ class PostsList {
 
     $reactive(this).attach($scope);
 
-    this.perPage = 3;
+    this.perPage = 9;
     this.page = 1;
     this.sort = {
       name: 1
@@ -89,6 +89,6 @@ function config($stateProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      template: '<posts-list></posts-list>'
+      template: '<posts-list flex></posts-list>'
     });
 }
