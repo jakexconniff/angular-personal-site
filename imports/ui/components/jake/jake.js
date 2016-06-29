@@ -1,4 +1,5 @@
 import angular from 'angular';
+import ngAnimate from 'angular-animate';
 import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
 import uiRouter from 'angular-ui-router';
@@ -17,6 +18,7 @@ const name = 'jake';
 // create a module
 export default angular.module(name, [
   angularMeteor,
+  'ngAnimate',
   ngMaterial,
   uiRouter,
   PostsList,

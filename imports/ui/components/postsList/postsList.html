@@ -1,4 +1,4 @@
-<div style="margin-top: -19px"></div>
+<div class="top-margin"></div>
 <md-toolbar class="md-hue-1" layout="row" layout-align="center center" layout-padding>
   <h1>Jake Conniff</h1>
 </md-toolbar>
@@ -12,19 +12,22 @@
       The interwebs are evolving. Do you want to be left behind? <br>
       My web development skills can help you keep up with the web.
     </p>
+
   </md-card>
   <md-divider></md-divider>
   <md-card layout-padding>
     <p class="md-display-2 md-raised">Message Board</p>
     <p>Want to leave a message? Feel free!</p>
+    <md-button ng-click="postAddToast.postToast()">
+      Click for Toast!
+    </md-button>
   </md-card>
   <md-divider></md-divider>
-  <md-card flex ui-sref="postDetails({ postId: post._id })"
-  class="post-card"
+  <md-card flex class="post-card animate-repeat"
   dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage"
   total-items="postsList.postsCount">
   <div layout="row">
-    <h2 flex>{{post.name}}</h2>
+    <h2 flex><span ui-sref="postDetails({ postId: post._id })">{{post.name}}</span></h2>
     <post-remove class="post-remove-button" post="post" ng-show="postsList.isOwner(post)"></post-remove>
   </div>
   <div layout="row">
@@ -39,10 +42,22 @@
 <post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
 
 
-<!--
+<!-- Search / Sort
 <div ng-if="!postsList.isLoggedIn">
 Log in to create a post!
 </div>
 <input type="search" ng-model="postsList.searchText" placeholder="Search">
 <posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
+-->
+
+<!-- Animation example
+<div layout="row">
+  <md-button ng-click="bool=true">Fade In!</md-button>
+  <md-button ng-click="bool=false">Fade Out!</md-button>
+</div>
+<div>
+  <div ng-if="bool" class="fade">
+     Fade me in out
+  </div>
+</div>
 -->

@@ -11,9 +11,10 @@ import { name as PostsSort } from '../postsSort/postsSort';
 import { name as PostAdd } from '../postAdd/postAdd';
 import { name as PostRemove } from '../postRemove/postRemove';
 import { name as PostAddButton } from '../postAddButton/postAddButton';
+import { name as PostAddToast } from '../postAddToast/postAddToast';
 
 class PostsList {
-  constructor($scope, $reactive) {
+  constructor($scope, $reactive, $mdToast) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -52,6 +53,7 @@ class PostsList {
       }
     });
 }
+
     // Test this as a helper.
     isOwner(post) {
       return this.isLoggedIn && post.owner === this.currentUserId;
@@ -76,7 +78,8 @@ export default angular.module(name, [
   PostRemove,
   utilsPagination,
   PostsSort,
-  PostAddButton
+  PostAddButton,
+  PostAddToast
 ]).component(name, {
   template,
   controllerAs: name,
