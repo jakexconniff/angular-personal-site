@@ -1,20 +1,26 @@
 <div style="margin-top: -19px"></div>
-<md-toolbar class="md-accent" layout="row" layout-align="center center" layout-padding>
+<md-toolbar class="md-hue-1" layout="row" layout-align="center center" layout-padding>
   <h1>Jake Conniff</h1>
 </md-toolbar>
 <md-divider></md-divider>
-<md-toolbar class="md-warn" layout="row" layout-align="center center" layout-padding>
+<md-toolbar class="md-hue-2" layout="row" layout-align="center center" layout-padding>
   <h1>Web Developer.</h1>
 </md-toolbar>
-<ul layout="column" layout-align="center center" layout-padding>
-  <md-card class="post-card" layout="row" dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage" total-items="postsList.postsCount" layout-padding>
-    <a ui-sref="postDetails({ postId: post._id })" flex>
-      {{post.name}}
-    </a>
-    <p flex>{{post.description}}</p>
-    <post-remove class="post-remove-button" post="post" ng-show="postsList.isOwner(post)"></post-remove>
-  </md-card>
-</ul>
+
+<md-content layout="column" layout-padding>
+    <md-card flex ui-sref="postDetails({ postId: post._id })"
+             class="post-card"
+             dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage"
+             total-items="postsList.postsCount">
+      <div layout="row">
+        <h2 flex>{{post.name}}</h2>
+        <post-remove class="post-remove-button" post="post" ng-show="postsList.isOwner(post)"></post-remove>
+      </div>
+      <div layout="row">
+        <p flex>{{post.description}}</p>
+      </div>
+    </md-card>
+</md-content>
 
 <div class="paginator" layout="column" layout-align="center center" layout-padding>
   <dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
