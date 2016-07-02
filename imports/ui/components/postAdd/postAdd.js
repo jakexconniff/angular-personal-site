@@ -5,10 +5,21 @@ import { Meteor } from 'meteor/meteor';
 
 import template from './postAdd.html';
 import { Posts } from '../../../api/posts/index';
+import { PostsList } from '../postsList/postsList';
 
 class PostAdd {
-  constructor() {
+  constructor($mdToast) {
+    'ngInject';
     this.post = {};
+
+    this.showToast = function() {
+      $mdToast.show({
+        controller: 'ToastCtrl',
+        template: '<post-add-toast></post-add-toast>',
+        parent: postsList,
+        position: 'bottom left'
+      });
+    }
   }
 
   submit() {
@@ -19,6 +30,7 @@ class PostAdd {
 
     if(this.done) {
       this.done();
+      this.showToast();
     }
 
     this.reset();
@@ -33,11 +45,30 @@ const name = 'postAdd';
 
 export default angular.module(name, [
   angularMeteor
-]).component(name, {
+])
+.component(name, {
   template,
   bindings: {
     done: '&?'
   },
   controllerAs: name,
   controller: PostAdd
+})
+.controller('ToastCtrl', function($scope, $animate, $mdToast, $mdDialog) {
+  'ngInject';
+  this.showToaster = function() {
+    $mdToast.show({
+      position: 'bottom left',
+      template: '<post-add-toast></post-add-toast>'
+    });
+  }
+
+	$scope.disableHide = function () {
+		console.log($animate)
+		console.log('mouse enter do something');
+		$mdToast.updateContent({
+			position: 'bottom right left',
+			hideDelay: false
+		});
+	};
 });

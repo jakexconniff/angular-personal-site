@@ -11,23 +11,16 @@ class PostAddToast {
 
     $reactive(this).attach($scope);
 
-    this.helpers({
-      showCustomToast() {
-        $mdToast.show({
-          hideDelay: 3000,
-          position: 'bottom left',
-          controller: 'PostAddToast',
-          templateUrl: 'postAddToast.html'
-        });
-      },
+    console.log("inside the constructor:");
+    console.log($mdToast);
 
+    this.helpers({
       testHelper() {
         console.log("We out here.");
       },
 
     })
   }
-
   postToast() {
     console.log("Hello");
   }

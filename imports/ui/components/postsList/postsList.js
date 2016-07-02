@@ -19,53 +19,63 @@ class PostsList {
 
     $reactive(this).attach($scope);
 
+    this.showToast = function() {
+      $mdToast.show({
+          hideDelay   : 3000,
+          position    : 'bottom left',
+          template: '<post-add-toast></post-add-toast>'
+        });
+    }
+
     this.perPage = 9;
     this.page = 1;
     this.sort = {
       name: 1
     };
-    this.searchText = '';
 
+    this.searchText = '';
     this.subscribe('posts', () => [{
       limit: parseInt(this.perPage),
       skip: parseInt((this.getReactively('page') - 1 ) * this.perPage ),
       sort: this.getReactively('sort')
     }, this.getReactively('searchText')
-    ]);
+  ]);
+  this.subscribe('users');
 
-    this.subscribe('users');
-
-
-    this.helpers({
-      posts() {
-        return Posts.find({}, {
-          sort: this.getReactively('sort')
-        });
-      },
-      postsCount() {
-        return Counts.get('numberOfPosts');
-      },
-      isLoggedIn() {
-        return !!Meteor.userId();
-      },
-      currentUserId() {
-        return Meteor.userId();
-      }
-    });
+  this.helpers({
+    posts() {
+      return Posts.find({}, {
+        sort: this.getReactively('sort')
+      });
+    },
+    postsCount() {
+      return Counts.get('numberOfPosts');
+    },
+    isLoggedIn() {
+      return !!Meteor.userId();
+    },
+    currentUserId() {
+      return Meteor.userId();
+    }
+  });
+}
+showToast() {
+  'ngInject';
+  $mdToast.showSimple();
 }
 
-    // Test this as a helper.
-    isOwner(post) {
-      return this.isLoggedIn && post.owner === this.currentUserId;
-    }
+// Test this as a helper.
+isOwner(post) {
+  return this.isLoggedIn && post.owner === this.currentUserId;
+}
 
-    pageChanged(newPage) {
-      this.page = newPage;
-    }
+pageChanged(newPage) {
+  this.page = newPage;
+}
 
-    sortChanged(sort) {
-      this.sort = sort;
-    }
+sortChanged(sort) {
+  this.sort = sort;
+}
 }
 
 const name = 'postsList';
@@ -85,13 +95,13 @@ export default angular.module(name, [
   controllerAs: name,
   controller: PostsList
 })
-  .config(config);
+.config(config);
 
 function config($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('home', {
-      url: '/home',
-      template: '<posts-list flex></posts-list>'
-    });
+  .state('home', {
+    url: '/home',
+    template: '<posts-list flex></posts-list>'
+  });
 }
