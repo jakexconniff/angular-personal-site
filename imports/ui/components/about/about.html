@@ -3,17 +3,18 @@
   <h1>About Me</h1>
 </md-toolbar>
 <md-divider></md-divider>
-<md-content class="background-container" layout="column" layout-padding>
+<md-content class="background-container" layout="column" layout-padding flex>
   <md-whiteframe layout-align="center center" class="md-toolbar-tools white-font">
     <p>
       Skills.
     </p>
     </md-whiteframe>
-  <md-content layout-padding>
-    <md-card layout="column" layout-padding>
+  <md-content layout-padding flex>
+    <md-card layout="column" layout-padding flex>
       <div layout="row" layout-align="start center" layout-padding>
         <md-button ng-click="about.clickTerm('javascript')">
-          <md-icon md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.termClicked !== 'javascript' " md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.termClicked == 'javascript' " md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
         <h4>JavaScript</h4>
         <div flex></div>
@@ -24,7 +25,7 @@
         <i class="material-icons">star</i>
       </div>
       <div>
-        <md-content ng-show="about.termClicked == 'javascript'" layout-padding layout-margin>
+        <md-content class="animate-show" ng-show="about.termClicked == 'javascript'" layout-padding layout-margin>
           <p>With the community behind Node.js growing constantly, it is a great time to know and love JavaScript.
             I have been using JavaScript for about a year but since learning it, have almost strictly used it.
             I enjoy learning native JavaScript, all the way down to high-end frameworks such as Meteor and Angular, and everything in between.
@@ -36,7 +37,8 @@
     <md-card layout="column" layout-padding>
       <div layout="row" layout-align="start center" layout-padding>
         <md-button ng-click="about.clickTerm('html')">
-          <md-icon md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.termClicked !== 'html' " md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.termClicked == 'html' " md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
         <h4>HTML</h4>
         <div flex></div>
@@ -47,7 +49,7 @@
         <i class="material-icons">star</i>
       </div>
       <div>
-        <md-content ng-show="about.termClicked == 'html'" layout-padding layout-margin>
+        <md-content class="animate-show" ng-show="about.termClicked == 'html'" layout-padding layout-margin>
           <p>HTML has been around for a long time, and any developer worth his salt should be thoroughly familiar with HTML.
             While it is quite easy, my understanding of newer HTML5 elements and proper usage can set me aside from the crowd.
             However, due to my love for using Angular and my recent spark with Material Design, these HTML skills have been put on hold for their custom tags.
@@ -55,6 +57,6 @@
         </md-content>
       </div>
     </md-card>
-
+  </md-content>
 </md-content>
 <md-divider></md-divider>

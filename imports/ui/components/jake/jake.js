@@ -35,7 +35,7 @@ export default angular.module(name, [
   .config(config)
   .run(run);
 
-function config($locationProvider, $urlRouterProvider, $mdIconProvider) {
+function config($locationProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
   'ngInject';
 
   $locationProvider.html5Mode(true);
@@ -61,6 +61,11 @@ function config($locationProvider, $urlRouterProvider, $mdIconProvider) {
         iconPath + 'svg-sprite-image.svg')
       .defaultIconSet(
         iconPath + 'svg-sprite-google.svg');
+
+        $mdThemingProvider.theme('default')
+          .primaryPalette('yellow')
+          .accentPalette('deep-orange');
+
   }
 
 function run($rootScope, $state) {

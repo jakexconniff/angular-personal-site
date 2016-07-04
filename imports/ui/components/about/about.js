@@ -11,11 +11,16 @@ class About {
       $reactive(this).attach($scope);
 
       this.termClicked = '';
-    }asdasd
+    }
 
     clickTerm(term) {
+      console.log(term);
+      if (this.termClicked == term) {
+        this.termClicked = '';
+      }
+      else {
         this.termClicked = term;
-        console.log(this.termClicked);
+      }
     }
 
     termCheck(term) {
