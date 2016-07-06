@@ -28,6 +28,8 @@ class Login {
     Meteor.loginWithPassword(this.credentials.email, this.credentials.password, this.$bindToContext((err) => {
         if (err) {
           this.error = err;
+          console.log(err);
+          console.log(this.error);
         } else {
           this.$state.go('home');
         }
@@ -54,6 +56,6 @@ function config($stateProvider) {
 
   $stateProvider.state('login', {
     url: '/login',
-    template: '<login></login>'
+    template: '<login flex></login>'
   });
 }
