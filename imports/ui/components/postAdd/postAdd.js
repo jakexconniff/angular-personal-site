@@ -13,12 +13,7 @@ class PostAdd {
     this.post = {};
 
     this.showToast = function() {
-      $mdToast.show({
-        controller: 'ToastCtrl',
-        template: '<post-add-toast></post-add-toast>',
-        parent: postsList,
-        position: 'bottom left'
-      });
+      $mdToast.showSimple('You have made a post!');
     }
   }
 

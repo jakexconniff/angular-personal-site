@@ -1,12 +1,11 @@
 .navbar {
   position: fixed;
-  z-index: 50;
+  z-index: 3;
   top: 0px;
   height: 64px;
 }
 
 .nav-item {
-  color: white;
   list-style: none;
   margin-right: 15px;
 }
@@ -15,12 +14,18 @@
   color: white;
 }
 
+// Used for navbar menu.
 .down {
-  position: absolute;
-  top: 15%;
-  left: 5%;
-  z-index: 300;
+  position: fixed;
+  top: 50px;
+  left: 23px;
+  z-index: 4;
+  background-color: #C82828;
 }
 
+// Used for backdrop caused with md-menu.
+md-backdrop._md-menu-backdrop {
+  z-index: 3;
+}
 
 @import "../auth/auth.less";

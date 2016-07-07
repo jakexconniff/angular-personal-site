@@ -63,8 +63,8 @@ function config($locationProvider, $urlRouterProvider, $mdIconProvider, $mdThemi
         iconPath + 'svg-sprite-google.svg');
 
         $mdThemingProvider.theme('default')
-          .primaryPalette('yellow')
-          .accentPalette('deep-orange');
+          .primaryPalette('red')
+          .accentPalette('pink');
 
   }
 

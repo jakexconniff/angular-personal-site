@@ -1,12 +1,18 @@
 <div class="top-margin">
-  The post you selected is:
-  <form>
-    Post name: <input type="text" ng-model="postDetails.post.name" ng-disabled="!postDetails.isOwner(postDetails.post)">
-    Description: <input type="text" ng-model="postDetails.post.description" ng-disabled="!postDetails.isOwner(postDetails.post)">
-    <button ng-click="postDetails.save()">Save</button>
-  </form>
+  <h1>{{ postDetails.post.name }}</h1>
+  <p>{{ postDetails.post.description }}</p>
+  <p>posted by: {{ postDetails.post.ownerEmail }}</p>
 
-  <p>Posted by: {{ postDetails.post.ownerEmail }} </p>
+  <!--
+    The post you selected is:
+    <form>
+      Post name: <input type="text" ng-model="postDetails.post.name" ng-disabled="!postDetails.isOwner(postDetails.post)">
+      Description: <input type="text" ng-model="postDetails.post.description" ng-disabled="!postDetails.isOwner(postDetails.post)">
+      <button ng-click="postDetails.save()">Save</button>
+    </form>
 
-  <button ui-sref="home">Back</button>
+    <p>Posted by: {{ postDetails.post.ownerEmail }} </p>
+
+    <button ui-sref="home">Back</button>
+  -->
 </div>

@@ -15,12 +15,10 @@
 
   </md-card>
   <md-divider></md-divider>
-  <md-card layout-padding>
-    <p class="md-display-2 md-raised">Message Board</p>
-    <p>Want to leave a message? Feel free!</p>
-    <md-button ng-click="postsList.showToast()">
-      Click for Toast!
-    </md-button>
+  <md-card flex="initial" layout="row" layout-padding>
+    <h2>Message Board</h2>
+    <div flex></div>
+    <post-add-button class="md-warn md-hue-1" layout-align="center end" ng-show="postsList.isLoggedIn"></post-add-button>
   </md-card>
   <md-divider></md-divider>
   <md-card flex="initial" class="animate-repeat"
@@ -38,8 +36,6 @@
   <dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
 </md-content>
-
-<post-add-button ng-show="postsList.isLoggedIn"></post-add-button>
 
 
 <!-- Search / Sort

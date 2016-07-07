@@ -3,16 +3,15 @@
     <span class="nav-item" hide show-gt-md ui-sref="home">Home </span>
     <span class="nav-item" hide show-gt-md ui-sref="about">About</span>
     <md-menu hide-gt-md md-position-mode="target-right target">
-     <!-- Trigger element is a md-button with an icon -->
-        <md-button class='md-raised'  ng-click="$mdOpenMenu()"  >
-            Menu
+        <md-button class='md-raised md-primary'  ng-click="$mdOpenMenu()"  >
+            <md-icon md-svg-icon="action:ic_polymer_24px"></md-icon>
         </md-button>
          <md-menu-content class="down">
             <md-menu-item>
-                <md-button >Home</md-button>
+                <md-button ui-sref="home">Home</md-button>
             </md-menu-item>
             <md-menu-item>
-                <md-button>About</md-button>
+                <md-button ui-sref="about">About</md-button>
             </md-menu-item>
          </md-menu-content>
     </md-menu>
