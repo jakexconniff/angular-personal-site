@@ -4,6 +4,8 @@ import uiRouter from 'angular-ui-router';
 
 import template from './about.html';
 
+import { Skills } from '../../../api/posts/index';
+
 class About {
     constructor($scope, $reactive) {
       'ngInject';
@@ -11,9 +13,30 @@ class About {
       $reactive(this).attach($scope);
 
       this.termClicked = '';
+
+      this.subscribe('skills');
+
+      this.helpers({
+        skills() {
+          return Skills.find({});
+        }
+      });
+    }
+    testFunction(rating) {
+      console.log(rating);
+      let stars = '';
+      for (var i = 0; i < rating; i++) {
+        console.log("tick");
+        if (i - rating > 1) {
+        } else {
+        }
+      }
+      console.log(stars);
+      return stars;
     }
 
     clickTerm(term) {
+
       console.log(term);
       if (this.termClicked == term) {
         this.termClicked = '';

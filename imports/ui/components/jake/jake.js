@@ -64,7 +64,7 @@ function config($locationProvider, $urlRouterProvider, $mdIconProvider, $mdThemi
 
         $mdThemingProvider.theme('default')
           .primaryPalette('red')
-          .accentPalette('pink');
+          .accentPalette('orange');
 
   }
 

@@ -2,8 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
 import { Posts } from './collection';
+import { Skills } from './collection';
 
 if (Meteor.isServer) {
+
   Meteor.publish('posts', function(options, searchString) {
     const selector = {
       $or: [{
@@ -38,5 +40,9 @@ if (Meteor.isServer) {
     });
 
     return Posts.find(selector, options);
+  });
+
+  Meteor.publish('skills', function() {
+    return Skills.find();
   });
 }

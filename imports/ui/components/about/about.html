@@ -10,15 +10,15 @@
     </p>
     </md-whiteframe>
   <md-content flex>
-    <md-card layout="column" layout-padding flex>
-      <div layout="row" layout-align="start center" layout-padding>
-        <md-button ng-click="about.clickTerm('javascript')">
-          <md-icon ng-show="about.termClicked !== 'javascript' " md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
-          <md-icon ng-show="about.termClicked == 'javascript' " md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
-        </md-button>
-        <h4 flex>JavaScript</h4>
+  <md-card layout="column" layout-padding flex ng-repeat="skill in about.skills">
+    <div layout="row" layout-align="start center" layout-padding>
+      <md-button ng-click="about.clickTerm(skill.name)">
+        <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+        <md-icon ng-show="about.termClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
+      </md-button>
+        <h4 flex>{{ skill.name }}</h4>
         <div flex></div>
-        <div flex>
+        <div>
           <i class="material-icons">star</i>
           <i class="material-icons">star</i>
           <i class="material-icons">star</i>
@@ -26,15 +26,12 @@
           <i class="material-icons">star</i>
         </div>
       </div>
-      <div>
-        <md-content class="animate-show" ng-show="about.termClicked == 'javascript'" layout-padding layout-margin>
-          <p>With the community behind Node.js growing constantly, it is a great time to know and love JavaScript.
-            I have been using JavaScript for about a year but since learning it, have almost strictly used it.
-            I enjoy learning native JavaScript, all the way down to high-end frameworks such as Meteor and Angular, and everything in between.
-          </p>
-        </md-content>
-      </div>
-    </md-card>
+      <md-content class="animate-show" ng-show="about.termClicked == skill.name" layout-padding layout-margin>
+        <p>{{skill.description}}
+        </p>
+      </md-content>
+  </md-card>
+
   </md-content>
 </md-content>
 <md-divider></md-divider>
