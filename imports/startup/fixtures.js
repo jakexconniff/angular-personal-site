@@ -19,7 +19,7 @@ Meteor.startup(() => {
       Posts.insert(post)
     });
   }
-  console.log("hello");
+  
   if (Skills.find().count() === 0) {
     const skills = [{
       'name': 'JavaScript',
@@ -33,7 +33,13 @@ Meteor.startup(() => {
       'name': 'CSS',
       'description': 'CSS stands for Cross Site Scripting. It is meant to allow you to hack enemy computers for world domination!!!!',
       'rating': 4.5
-    }];
+    }, {
+      'name': 'C++',
+      'description': 'I once got a grade of C++ in my English class. The teacher said it was so mediocre that it was worth two plusses.',
+      'rating': 3
+    }
+
+  ];
 
     skills.forEach((skill) => {
       Skills.insert(skill)

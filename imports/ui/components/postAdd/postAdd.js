@@ -59,8 +59,6 @@ export default angular.module(name, [
   }
 
 	$scope.disableHide = function () {
-		console.log($animate)
-		console.log('mouse enter do something');
 		$mdToast.updateContent({
 			position: 'bottom right left',
 			hideDelay: false

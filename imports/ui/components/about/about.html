@@ -19,11 +19,11 @@
         <h4 flex>{{ skill.name }}</h4>
         <div flex></div>
         <div>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
+          <i ng-show="skill.rating >= 1" class="material-icons">star</i>
+          <i ng-show="skill.rating >= 2" class="material-icons">star</i>
+          <i ng-show="skill.rating >= 3" class="material-icons">star</i>
+          <i ng-show="skill.rating >= 4" class="material-icons">star</i>
+          <i ng-show="skill.rating >= 5" class="material-icons">star</i>
         </div>
       </div>
       <md-content class="animate-show" ng-show="about.termClicked == skill.name" layout-padding layout-margin>

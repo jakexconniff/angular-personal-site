@@ -1,21 +1,21 @@
 <div class="top-margin"></div>
-<md-toolbar class="md-hue-1" layout="row" layout-align="center center" layout-padding>
+<md-toolbar class="animate-entrance one md-hue-1" layout="row" layout-align="center center" layout-padding>
   <h1>Jake Conniff</h1>
 </md-toolbar>
-<md-divider></md-divider>
-<md-toolbar class="md-hue-2" layout="row" layout-align="center center" layout-padding>
+<md-divider class="animate-entrance one"></md-divider>
+<md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
   <h1>Web Developer</h1>
 </md-toolbar>
-<md-content class="background-container" layout="column" layout-padding>
-  <md-card layout-align="center center" layout-padding>
+<md-content class="background-container" layout="column" layout-padding layout-overflow>
+  <md-card class="animate-entrance three" layout-align="center center" layout-padding>
     <p>
       The interwebs are evolving. Do you want to be left behind? <br>
       My web development skills can help you keep up with the web.
     </p>
 
   </md-card>
-  <md-divider></md-divider>
-  <md-card flex="initial" layout="row" layout-padding>
+  <md-divider class="animate-entrance three"></md-divider>
+  <md-card class="animate-entrance four" flex="initial" layout="row" layout-padding>
     <h2>Message Board</h2>
     <div flex></div>
     <post-add-button class="md-warn md-hue-1" layout-align="center end" ng-show="postsList.isLoggedIn"></post-add-button>

@@ -11,18 +11,13 @@ class PostAddToast {
 
     $reactive(this).attach($scope);
 
-    console.log("inside the constructor:");
-    console.log($mdToast);
-
     this.helpers({
       testHelper() {
-        console.log("We out here.");
       },
 
     })
   }
   postToast() {
-    console.log("Hello");
   }
 }
 

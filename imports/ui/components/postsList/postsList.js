@@ -44,6 +44,7 @@ class PostsList {
 
   this.helpers({
     posts() {
+      console.log(Posts.find().fetch());
       return Posts.find({}, {
         sort: this.getReactively('sort')
       });

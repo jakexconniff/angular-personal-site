@@ -1,3 +1,30 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    } to {
+    transform: translateX(0%);
+    }
+}
+
+.animate-entrance {
+  transform: translateX(120%);
+  animation:slideIn ease-in 1;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+}
+.animate-entrance.one {
+    animation-delay: 0.5s;
+}
+.animate-entrance.two {
+    animation-delay: 0.8s;
+}
+.animate-entrance.three {
+    animation-delay: 1.1s;
+}
+.animate-entrance.four {
+    animation-delay: 1.4s;
+}
+
 .animate-repeat {
   line-height:30px;
   list-style:none;
@@ -8,6 +35,7 @@
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
   transition:all linear 0.5s;
+  animation-delay: 1.7s;
 
 }
 

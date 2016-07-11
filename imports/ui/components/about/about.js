@@ -22,18 +22,6 @@ class About {
         }
       });
     }
-    testFunction(rating) {
-      console.log(rating);
-      let stars = '';
-      for (var i = 0; i < rating; i++) {
-        console.log("tick");
-        if (i - rating > 1) {
-        } else {
-        }
-      }
-      console.log(stars);
-      return stars;
-    }
 
     clickTerm(term) {
 
