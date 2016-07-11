@@ -1,16 +1,13 @@
 <div class="top-margin"></div>
-<md-toolbar md-scroll-shrink flex class="md-hue-1" layout="row" layout-align="center center" layout-padding>
+<md-toolbar class="animate-entrance one md-hue-1" layout="row" layout-align="center center" layout-padding>
   <h1>About Me</h1>
 </md-toolbar>
-<md-divider></md-divider>
-<md-content class="background-container" layout="column" flex>
-  <md-whiteframe layout-align="center center" class="md-toolbar-tools white-font">
-    <p>
-      Skills.
-    </p>
-    </md-whiteframe>
-  <md-content flex>
-  <md-card layout="column" layout-padding flex ng-repeat="skill in about.skills">
+<md-divider class="animate-entrance one"></md-divider>
+<md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
+  <h1>Languages</h1>
+</md-toolbar>
+  <md-content class="background-container animate-entrance three" flex>
+  <md-card layout="column" layout-padding flex ng-repeat="skill in about.skills" class="animate-repeat two">
     <div layout="row" layout-align="start center" layout-padding>
       <md-button ng-click="about.clickTerm(skill.name)">
         <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
@@ -33,5 +30,5 @@
   </md-card>
 
   </md-content>
-</md-content>
+
 <md-divider></md-divider>

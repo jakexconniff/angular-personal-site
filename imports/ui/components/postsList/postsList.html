@@ -6,14 +6,29 @@
 <md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
   <h1>Web Developer</h1>
 </md-toolbar>
-<md-content class="background-container" layout="column" layout-padding layout-overflow>
-  <md-card class="animate-entrance three" layout-align="center center" layout-padding>
-    <p>
-      The interwebs are evolving. Do you want to be left behind? <br>
-      My web development skills can help you keep up with the web.
-    </p>
+<md-content class="background-container" layout="column" layout-padding>
+  <!-- <md-card class="animate-entrance three" layout-align="center center" layout-padding> Took out to convert to grid list, must carry over animation classes eventually.-->
+<div class="animate-entrance-left three grid-container">
+  <md-grid-list
+    class="animate-entrance-left"
+    md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
+    md-row-height-gt-md="1:1" md-row-height="4:3"
+    md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"
+    md-row-height="2:2">
+      <md-grid-tile md-colspan-gt-sm="4" md-rowspan-gt-sm="4" style="background-color: blue">
+      </md-grid-tile>
+      <md-grid-tile md-colspan-gt-sm="4" md-rowspan-gt-sm="2" style="background-color: brown">
+      </md-grid-tile>
+      <md-grid-tile md-colspan-gt-sm="4" md-rowspan-gt-sm="2" style="background-color: pink">
+      </md-grid-tile>
+      <md-grid-tile md-colspan-gt-sm="4" md-rowspan-gt-sm="2" style="background-color: orange">
+      </md-grid-tile>
+      <md-grid-tile md-colspan="4" md-colspan-sm="2" md-colspan-md="4" md-rowspan-gt-sm="2" style="background-color: red">
+      </md-grid-tile>
+  </md-grid-list>
+</div>
+  <!-- </md-card> -->
 
-  </md-card>
   <md-divider class="animate-entrance three"></md-divider>
   <md-card class="animate-entrance four" flex="initial" layout="row" layout-padding>
     <h2>Message Board</h2>
@@ -21,7 +36,7 @@
     <post-add-button class="md-warn md-hue-1" layout-align="center end" ng-show="postsList.isLoggedIn"></post-add-button>
   </md-card>
   <md-divider></md-divider>
-  <md-card flex="initial" class="animate-repeat"
+  <md-card flex="initial" class="animate-repeat one"
   dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage"
   total-items="postsList.postsCount">
   <div layout="row">
