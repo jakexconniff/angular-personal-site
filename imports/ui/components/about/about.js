@@ -5,6 +5,7 @@ import uiRouter from 'angular-ui-router';
 import template from './about.html';
 
 import { Skills } from '../../../api/posts/index';
+import { Languages } from '../../../api/posts/index';
 
 class About {
     constructor($scope, $reactive) {
@@ -15,10 +16,14 @@ class About {
       this.termClicked = '';
 
       this.subscribe('skills');
+      this.subscribe('languages');
 
       this.helpers({
         skills() {
           return Skills.find({});
+        },
+        languages() {
+          return Languages.find({});
         }
       });
     }

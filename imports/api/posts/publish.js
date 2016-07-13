@@ -3,6 +3,7 @@ import { Counts } from 'meteor/tmeasday:publish-counts';
 
 import { Posts } from './collection';
 import { Skills } from './collection';
+import { Languages } from './collection';
 
 if (Meteor.isServer) {
 
@@ -45,4 +46,8 @@ if (Meteor.isServer) {
   Meteor.publish('skills', function() {
     return Skills.find();
   });
+
+  Meteor.publish('languages', function() {
+    return Languages.find();
+  })
 }
