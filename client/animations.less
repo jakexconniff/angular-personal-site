@@ -5,13 +5,18 @@
     transform: translateX(0%);
     }
 }
-
+/*
 @keyframes slideInLeft {
   from {
     transform: translateX(-120%);
     } to {
     transform: translateX(0%);
     }
+}*/
+
+@keyframes slideInLeft {
+  0%   {  transform: translateX(-120%)}
+  100% {  transform: translateX(0%)   }
 }
 
 .animate-entrance {
@@ -32,6 +37,8 @@
 .animate-entrance.four {
     animation-delay: 1.0s;
 }
+
+
 
 .animate-entrance-left {
   transform: translateX(-150%);

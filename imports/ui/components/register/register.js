@@ -50,6 +50,6 @@ function config($stateProvider) {
   'ngInject';
   $stateProvider.state('register', {
     url: '/register',
-    template: '<register></register>'
+    template: '<register flex></register>'
   });
 }

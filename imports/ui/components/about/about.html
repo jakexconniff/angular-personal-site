@@ -4,18 +4,18 @@
 </md-toolbar>
 <md-divider class="animate-entrance one"></md-divider>
 <md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
-  <h1>Languages</h1>
+  <span>Languages</span><span flex></span><span>Proficiency</span>
 </md-toolbar>
   <md-content class="background-container animate-entrance three" flex>
   <md-card layout="column" layout-padding flex ng-repeat="skill in about.skills" class="animate-repeat two">
     <div layout="row" layout-align="start center" layout-padding>
-      <md-button ng-click="about.clickTerm(skill.name)">
-        <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
-        <md-icon ng-show="about.termClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
-      </md-button>
-        <h4 flex>{{ skill.name }}</h4>
+        <h4>{{ skill.name }}</h4>
+        <md-button ng-click="about.clickTerm(skill.name)">
+          <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.termClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
+        </md-button>
         <div flex></div>
-        <div>
+        <div flex layout-gt-xs="row" layout-align-gt-xs="end center">
           <i ng-show="skill.rating >= 1" class="material-icons">star</i>
           <i ng-show="skill.rating >= 2" class="material-icons">star</i>
           <i ng-show="skill.rating >= 3" class="material-icons">star</i>
