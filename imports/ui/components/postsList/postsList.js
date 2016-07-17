@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
+import angularScrollAnimate from 'angular-scroll-animate';
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
@@ -13,11 +14,23 @@ import { name as PostRemove } from '../postRemove/postRemove';
 import { name as PostAddButton } from '../postAddButton/postAddButton';
 import { name as PostAddToast } from '../postAddToast/postAddToast';
 
+
+
 class PostsList {
   constructor($scope, $reactive, $mdToast) {
     'ngInject';
 
     $reactive(this).attach($scope);
+
+    this.animInRight = function($el) {
+      $el.removeClass('not-visible');
+      $el.addClass('animate-entrance-right');
+    }
+
+    this.animOutRight = function($el) {
+      $el.addClass('not-visible');
+      $el.removeClass('animate-entrance-right');
+    }
 
     this.showToast = function() {
       $mdToast.show({
@@ -60,6 +73,7 @@ class PostsList {
     }
   });
 }
+
 showToast() {
   'ngInject';
   $mdToast.showSimple();
@@ -85,6 +99,7 @@ const name = 'postsList';
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
+  'angular-scroll-animate',
   PostAdd,
   PostRemove,
   utilsPagination,

@@ -1,60 +1,64 @@
+@anim-entrance-distance: 150%;
+
+
 @keyframes slideInRight {
-  from {
-    transform: translateX(120%);
-    } to {
-    transform: translateX(0%);
-    }
+  0%   {  transform: translateX(@anim-entrance-distance)}
+  100% {  transform: translateX(0%)  }
 }
-/*
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-120%);
-    } to {
-    transform: translateX(0%);
-    }
-}*/
 
 @keyframes slideInLeft {
-  0%   {  transform: translateX(-120%)}
+  0%   {  transform: translateX(@anim-entrance-distance * -1)}
   100% {  transform: translateX(0%)   }
 }
 
-.animate-entrance {
-  transform: translateX(150%);
-  animation:slideInRight ease-in 1;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
+@keyframes opacityIn {
+  0%   { opacity: 0 }
+  20%  { opacity: .5 }
+  100% { opacity: 1 }
+
 }
-.animate-entrance.one {
+
+.animate-entrance-right {
+  transform: translateX(@anim-entrance-distance);
+  animation: slideInRight ease-in 1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.delay-one {
     animation-delay: 0.1s;
 }
-.animate-entrance.two {
+.delay-two {
     animation-delay: 0.4s;
 }
-.animate-entrance.three {
+.delay-three {
     animation-delay: 0.8s;
 }
-.animate-entrance.four {
+.delay-four {
     animation-delay: 1.0s;
 }
 
-
-
 .animate-entrance-left {
-  transform: translateX(-150%);
-  animation:slideInLeft ease-in 1;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
+  transform: translateX(-@anim-entrance-distance);
+  animation: slideInLeft ease-in 1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-.animate-entrance-left.grid-container {
-  animation-delay: 0.7s;
+.animate-entrance-inner-grid {
+  transform: translateX(@anim-entrance-distance);
+  transform: translateY(100px);
+  opacity: 0;
+  animation: slideInRight ease-in 1, opacityIn ease-in 1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  z-index: 10;
+  animation-delay: 0.8s;
 }
 
 .animate-repeat {
-  line-height:30px;
-  list-style:none;
-  box-sizing:border-box;
+  line-height: 30px;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 .animate-repeat.one {
@@ -65,10 +69,14 @@
   animation-delay: 0.4s;
 }
 
+.animate-repeat.three {
+  animation-delay: 0.7s;
+}
+
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
-  transition:all linear 0.5s;
+  transition: all linear 0.5s;
 
 }
 

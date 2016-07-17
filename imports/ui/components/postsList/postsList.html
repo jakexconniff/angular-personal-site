@@ -1,42 +1,48 @@
 <div class="top-margin"></div>
-<md-toolbar class="animate-entrance one md-hue-1" layout="row" layout-align="center center" layout-padding>
+<md-toolbar when-visible="postsList.animInRight"
+            when-not-visible="postsList.animOutRight"
+            class="not-visible md-hue-1"
+            layout="row"
+            layout-align="center center"
+            layout-padding>
   <h1>Jake Conniff</h1>
 </md-toolbar>
-<md-divider class="animate-entrance one"></md-divider>
-<md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
+<md-divider when-visible="postsList.animInRight"
+            when-not-visible="postsList.animOutRight"
+            class="not-visible"></md-divider>
+<md-toolbar when-visible="postsList.animInRight"
+            when-not-visible="postsList.animOutRight"
+            class="not-visible md-hue-2" layout="row" layout-align="center center" layout-padding>
   <h1>Web Developer</h1>
 </md-toolbar>
 <md-content class="background-container" layout="column" layout-padding>
-  <!-- <md-card class="animate-entrance three" layout-align="center center" layout-padding> Took out to convert to grid list, must carry over animation classes eventually.-->
-<div class="animate-entrance-left three grid-container" hide-xs>
-  <md-grid-list
-    class="animate-entrance-left"
-    md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
-    md-row-height-gt-md="1:1" md-row-height="4:3"
-    md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"
-    md-row-height="2:2">
-      <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="4" style="background-color: blue">
-      </md-grid-tile>
-      <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" style="background-color: brown">
-      </md-grid-tile>
-      <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" style="background-color: pink">
-      </md-grid-tile>
-      <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" style="background-color: orange">
-      </md-grid-tile>
-      <md-grid-tile md-colspan="4" md-colspan-sm="2" md-colspan-md="4" md-rowspan-gt-xs="2" style="background-color: red">
-      </md-grid-tile>
-  </md-grid-list>
-</div>
-  <!-- </md-card> -->
+  <div when-visible="postsList.animInRight" when-not-visible="postsList.animOutRight" class="not-visible grid-container" hide-xs>
+    <md-grid-list
+      md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
+      md-row-height-gt-md="1:1" md-row-height="4:3"
+      md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"
+      md-row-height="2:2">
+        <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="4" class="animate-entrance-inner-grid blue">
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" class="animate-entrance-inner-grid orange">
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" class="animate-entrance-inner-grid yellow">
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-xs="4" md-rowspan-gt-xs="2" class="animate-entrance-inner-grid pink">
+        </md-grid-tile>
+        <md-grid-tile md-colspan="4" md-colspan-sm="2" md-colspan-md="4" md-rowspan-gt-xs="2"  class="animate-entrance-inner-grid red">
+        </md-grid-tile>
+    </md-grid-list>
+  </div>
 
   <md-divider class="animate-entrance three"></md-divider>
-  <md-card class="animate-entrance four" flex="initial" layout="row" layout-padding>
+  <md-card when-visible="postsList.animInRight" when-not-visible="postsList.animOutRight" class="not-visible" flex="initial" layout="row" layout-padding>
     <h2>Message Board</h2>
     <div flex></div>
     <post-add-button class="md-warn md-hue-1" layout-align="center end" ng-show="postsList.isLoggedIn"></post-add-button>
   </md-card>
   <md-divider></md-divider>
-  <md-card flex="initial" class="animate-repeat one"
+  <md-card flex="initial" class="not-visible" when-visible="postsList.animInRight" when-not-visible="postsList.animOutRight"
   dir-paginate="post in postsList.posts | itemsPerPage: postsList.perPage"
   total-items="postsList.postsCount">
   <div layout="row">
@@ -51,24 +57,3 @@
   <dir-pagination-controls on-page-change="postsList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
 </md-content>
-
-
-<!-- Search / Sort
-<div ng-if="!postsList.isLoggedIn">
-Log in to create a post!
-</div>
-<input type="search" ng-model="postsList.searchText" placeholder="Search">
-<posts-sort on-change="postsList.sortChanged(sort)" property="name" order="1"></posts-sort>
--->
-
-<!-- Animation example
-<div layout="row">
-  <md-button ng-click="bool=true">Fade In!</md-button>
-  <md-button ng-click="bool=false">Fade Out!</md-button>
-</div>
-<div>
-  <div ng-if="bool" class="fade">
-     Fade me in out
-  </div>
-</div>
--->

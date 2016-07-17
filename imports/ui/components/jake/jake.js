@@ -10,6 +10,7 @@ import { name as PostDetails } from '../postDetails/postDetails';
 import { name as Navigation } from '../navigation/navigation';
 import { name as Auth } from '../auth/auth';
 import { name as About } from '../about/about';
+import { name as Experience } from '../experience/experience';
 
 class Jake {}
 
@@ -26,6 +27,7 @@ export default angular.module(name, [
   Navigation,
   Auth,
   About,
+  Experience,
   'accounts.ui'
 ]).component(name, {
   template,

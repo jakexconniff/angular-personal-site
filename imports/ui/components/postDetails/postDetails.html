@@ -1,9 +1,13 @@
 <div class="top-margin"></div>
-<md-card layout-padding layout-margin>
-  <h1>{{ postDetails.post.name }}</h1>
-  <p>{{ postDetails.post.description }}</p>
-  <p>posted by: {{ postDetails.post.ownerEmail }}</p>
-</md-card>
+<div layout="column" layout-align="center center" flex>
+  <div flex></div>
+  <md-card class="post-details" layout-padding layout-margin>
+    <h1>{{ postDetails.post.name }}</h1>
+    <p>{{ postDetails.post.description }}</p>
+    <p>posted by: {{ postDetails.post.ownerEmail }}</p>
+  </md-card>
+  <div flex></div>
+</div>
   <!--
     The post you selected is:
     <form>

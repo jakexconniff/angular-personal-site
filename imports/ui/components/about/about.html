@@ -1,18 +1,23 @@
 <div class="top-margin"></div>
-<md-toolbar class="animate-entrance one md-hue-1" layout="row" layout-align="center center" layout-padding>
+<md-toolbar
+  when-visible="about.animInRight"
+  when-not-visible="about.animOutRight"
+  class="not-visible md-hue-1" layout="row" layout-align="center center" layout-padding>
   <h1>About Me</h1>
 </md-toolbar>
-<md-divider class="animate-entrance one"></md-divider>
-<md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
+<md-divider when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible"></md-divider>
+<md-toolbar when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible md-hue-2"
+            layout="row" layout-align="center center" layout-padding>
   <span>Skills</span><span flex></span><span>Proficiency</span>
 </md-toolbar>
-  <md-content class="background-container animate-entrance three" flex>
-  <md-card layout="column" layout-padding flex ng-repeat="skill in about.skills" class="animate-repeat two">
+  <md-content when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible background-container" flex>
+  <md-card when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible"
+           layout="column" layout-padding flex ng-repeat="skill in about.skills">
     <div layout="row" layout-align="start center" layout-padding>
         <h4>{{ skill.name }}</h4>
-        <md-button ng-click="about.clickTerm(skill.name)">
-          <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
-          <md-icon ng-show="about.termClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
+        <md-button ng-click="about.clickTerm(skill.name, 'skill')">
+          <md-icon ng-show="about.skillClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.skillClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
         <div flex></div>
         <div flex layout-gt-xs="row" layout-align-gt-xs="end center">
@@ -23,20 +28,20 @@
           <i ng-show="skill.rating >= 5" class="material-icons">star</i>
         </div>
       </div>
-      <md-content class="animate-show" ng-show="about.termClicked == skill.name" layout-padding layout-margin>
+      <md-content class="animate-show" ng-show="about.skillClicked == skill.name" layout-padding layout-margin>
         <p>{{skill.description}}
         </p>
       </md-content>
   </md-card>
-  <md-toolbar class="animate-entrance two md-hue-2" layout="row" layout-align="center center" layout-padding>
+  <md-toolbar when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible md-hue-2" layout="row" layout-align="center center" layout-padding>
     <span>Languages</span><span flex></span><span>Proficiency</span>
   </md-toolbar>
-  <md-card layout="column" layout-padding flex ng-repeat="language in about.languages" class="animate-repeat two">
+  <md-card when-visible="about.animInRight" when-not-visible="about.animOutRight" class="not-visible" layout="column" layout-padding flex ng-repeat="language in about.languages">
     <div layout="row" layout-align="start center" layout-padding>
         <h4>{{ language.name }}</h4>
-        <md-button ng-click="about.clickTerm(skill.name)">
-          <md-icon ng-show="about.termClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
-          <md-icon ng-show="about.termClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
+        <md-button ng-click="about.clickTerm(language.name, 'language')">
+          <md-icon ng-show="about.languageClicked !== language.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
+          <md-icon ng-show="about.languageClicked == language.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
         <div flex></div>
         <div flex layout-gt-xs="row" layout-align-gt-xs="end center">
@@ -47,7 +52,7 @@
           <i ng-show="language.rating >= 5" class="material-icons">star</i>
         </div>
       </div>
-      <md-content class="animate-show" ng-show="about.termClicked == skill.name" layout-padding layout-margin>
+      <md-content class="animate-show" ng-show="about.languageClicked == language.name" layout-padding layout-margin>
         <p>{{language.description}}
         </p>
       </md-content>

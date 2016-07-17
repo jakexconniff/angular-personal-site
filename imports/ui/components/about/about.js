@@ -13,7 +13,18 @@ class About {
 
       $reactive(this).attach($scope);
 
-      this.termClicked = '';
+      this.skillClicked = '';
+      this.languageClicked = '';
+
+      this.animInRight = function($el) {
+        $el.removeClass('not-visible');
+        $el.addClass('animate-entrance-right');
+      }
+
+      this.animOutRight = function($el) {
+        $el.addClass('not-visible');
+        $el.removeClass('animate-entrance-right');
+      }
 
       this.subscribe('skills');
       this.subscribe('languages');
@@ -28,21 +39,38 @@ class About {
       });
     }
 
-    clickTerm(term) {
+    clickTerm(term, type) {
+      if (type == 'language') {
+        this.skillClicked = '';
+        if (this.languageClicked == term) {
+          this.languageClicked = '';
+        }
+        else {
+          this.languageClicked = term;
+        }
+      }
+      if (type == 'skill') {
+        this.languageClicked = '';
+        if (this.skillClicked == term) {
+          this.skillClicked = '';
+        }
+        else {
+          this.skillClicked = term;
+        }
+      }
 
-      console.log(term);
-      if (this.termClicked == term) {
-        this.termClicked = '';
+      /* if (this.skillClicked == term) {
+        this.skillClicked = '';
       }
       else {
-        this.termClicked = term;
-      }
+        this.skillClicked = term;
+      } */
     }
 
     termCheck(term) {
-      console.log(this.termClicked);
+      console.log(this.skillClicked);
       console.log(term);
-      return this.termClicked == term;
+      return this.skillClicked == term;
     }
 }
 
@@ -50,7 +78,7 @@ const name = 'about';
 
 export default angular.module(name, [
   angularMeteor,
-  uiRouter
+  uiRouter,
 ]).component(name, {
   template,
   controllerAs: name,
