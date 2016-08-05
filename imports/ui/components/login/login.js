@@ -24,6 +24,10 @@ class Login {
     this.error = '';
   }
 
+  loginWithFacebook(event) {
+    console.log(event);
+  }
+
   login() {
     Meteor.loginWithPassword(this.credentials.email, this.credentials.password, this.$bindToContext((err) => {
         if (err) {

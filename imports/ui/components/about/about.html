@@ -19,8 +19,7 @@
           <md-icon ng-show="about.skillClicked !== skill.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
           <md-icon ng-show="about.skillClicked == skill.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
-        <div flex></div>
-        <div flex layout-gt-xs="row" layout-align-gt-xs="end center">
+        <div flex layout="row" layout-align="end center">
           <i ng-show="skill.rating >= 1" class="material-icons">star</i>
           <i ng-show="skill.rating >= 2" class="material-icons">star</i>
           <i ng-show="skill.rating >= 3" class="material-icons">star</i>
@@ -43,8 +42,7 @@
           <md-icon ng-show="about.languageClicked !== language.name" md-svg-icon="navigation:ic_expand_more_24px"></md-icon>
           <md-icon ng-show="about.languageClicked == language.name" md-svg-icon="navigation:ic_expand_less_24px"></md-icon>
         </md-button>
-        <div flex></div>
-        <div flex layout-gt-xs="row" layout-align-gt-xs="end center">
+        <div flex layout="row" layout-align="end center">
           <i ng-show="language.rating >= 1" class="material-icons">star</i>
           <i ng-show="language.rating >= 2" class="material-icons">star</i>
           <i ng-show="language.rating >= 3" class="material-icons">star</i>

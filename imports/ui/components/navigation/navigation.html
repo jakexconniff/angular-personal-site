@@ -1,10 +1,10 @@
 <md-toolbar class="navbar">
   <div class="md-toolbar-tools">
-    <md-button hide show-gt-md ui-sref="home">Home</md-button>
-    <md-button hide show-gt-md ui-sref="about">About</md-button>
-    <md-button hide show-gt-md ui-sref="experience">Experience</md-button>
+    <md-button class="nav-item" id="home" ng-click="navigation.setActiveNav('home')" hide show-gt-md ui-sref="home">Home</md-button>
+    <md-button class="nav-item" id="about" hide show-gt-md ui-sref="about">About</md-button>
+    <md-button class="nav-item" id="experience" hide show-gt-md ui-sref="experience">Experience</md-button>
     <md-menu hide-gt-md md-position-mode="target-right target">
-        <md-button class='md-raised md-primary'  ng-click="$mdOpenMenu()"  >
+        <md-button class='md-raised md-primary' ng-click="$mdOpenMenu()"  >
             <md-icon md-svg-icon="action:ic_list_24px"></md-icon>
         </md-button>
          <md-menu-content class="down">

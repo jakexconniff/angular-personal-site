@@ -92,4 +92,5 @@ function config($stateProvider) {
       url: '/about',
       template: '<about flex></about>'
     });
+
 }
